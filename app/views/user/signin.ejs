@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+<div class="well">
+
+	<form class="form-horizontal" role="form" action="signin" method="post">
+		<div class="form-group">
+			<label for="inputEmail1" class="col-lg-2 control-label">
+				<%= i18n('user.email') %>
+			</label>
+			<div class="col-lg-10">
+				<input type="" class="form-control" id="inputEmail1" placeholder="<%= i18n('user.email') %>" name='login'>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword1" class="col-lg-2 control-label"><%= i18n('user.password') %></label>
+			<div class="col-lg-10">
+				<input type="password" class="form-control" id="inputPassword1" placeholder="<%= i18n('user.password') %>" name='password'>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name='remember'> <%= i18n('user.remember') %>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
+				<button type="submit" class="btn btn-default"><%= i18n('user.signin') %></button>
+			</div>
+		</div>
+	</form>
+
+	<ul id="users">
+
+	</ul>
+
+</div>
