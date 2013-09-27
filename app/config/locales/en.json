@@ -1,6 +1,7 @@
 {
 
   "user.email": 	"Email",
-  "user.password":	"Mot de passe"
+  "user.password":	"Password",
+  "user.signin":	"Sign in"
 
 }
