@@ -8,7 +8,13 @@ Version 0.0.1 aka Origin
 ### Features
 
 This followings features will be available on release 0.0.1 aka Origin. It's a simple
-webapp with existing accounts for one user. Very simple features. It's just to test Sails
+webapp with existing accounts for one exiting user. Very simple features. Application
+show balance of accouunts for the current month, each month, outgoings are clear from 
+the UI (but not from the database) You can :
+* Add and remove outgoings
+* Validate outgoings
+
+It's just to test Sails
 Framework in a real project configuration. 
 
 Do not use this version except to take a look at code ! This is crap

@@ -1,3 +1,6 @@
 {
-  "Hello": "Sup"
+
+  "user.email": 	"Email",
+  "user.password":	"Mot de passe"
+
 }
