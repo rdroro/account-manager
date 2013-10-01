@@ -24,7 +24,6 @@
     var currentAccount = req.param.account;
     resp.send('200', currentAccount.name+' is own');
   }
-  
 
 };
 
