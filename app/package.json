@@ -1,8 +1,8 @@
 {
-    "name": "app",
+    "name": "Account-manager",
     "private": true,
     "version": "0.0.0",
-    "description": "a Sails application",
+    "description": "Account bank manager developed with Sails Framework",
     "dependencies": {
         "sails": "0.9.4",
         "grunt": "0.4.1",

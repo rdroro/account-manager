@@ -1,7 +1,8 @@
 {
 
-  "user.email": 	"Email",
-  "user.password":	"Password",
-  "user.signin":	"Sign in"
+  "user.email": 				"Email",
+  "user.password":				"Password",
+  "user.signin":				"Sign in",
+  "sails.config.appName": 		"Account Bank Mangager"
 
 }

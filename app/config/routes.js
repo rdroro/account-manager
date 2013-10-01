@@ -26,19 +26,35 @@
  *
  */
 
-module.exports.routes = {
+ module.exports.routes = {
 
   // By default, your root route (aka home page) points to a view
   // located at `views/home/index.ejs`
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
   '/': {
-    view: 'user/signin'
+    controller:   'AccountController',
+    action:       'accountList'
   },
 
-  '/signin': {
+  'post /signin': {
     controller :  "UserController",
     action:       "signin", 
+  },
+
+  '/signout': {
+    controller: 'UserController',
+    action: 'signout'
+  },
+
+  '/accounts': {
+    controller:   'AccountController',
+    action:       'accountList'
+  },
+
+  '/account/:id': {
+    controller:   'AccountController',
+    action:       'accountDetail'
   }
 
   /*

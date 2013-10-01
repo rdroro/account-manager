@@ -14,8 +14,16 @@
   */
 
   signin: function (req, resp) {
+    if (req.session.user) {
+      return resp.redirect('/accounts');
+    }
   	var login = req.param('login');
   	var password = req.param('password');
+
+    if (!login || ! password) {
+      resp.send(403);
+      return;
+    }
 
   	User.findOneByLogin(login)  	
   	.exec(function(err, user){
@@ -37,12 +45,21 @@
 
   		var goodPassword = md5Hasher.digest('hex')
   		if (goodPassword === user.password) {
-  			console.log('connexion OK');
-  			resp.send(200);
+        req.session.user = user;
+        Account.findByUserId(user.id)
+        .exec(function (err, accounts) {
+          req.session.user.accounts = accounts;
+        });
+  			resp.redirect('/accounts');
   		} else {
   			resp.send(403);
   		}
   	});
+  },
+
+  signout:  function (req, resp) {
+    delete req.session.user;
+    return resp.redirect('/');
   }
 
 };
