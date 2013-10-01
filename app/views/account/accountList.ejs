@@ -1,0 +1,12 @@
+<div class="well">
+	<h1>Account List</h1>
+	<ul>
+		<% _.each(accounts, function(account){ %>
+		<li>
+			<a href="/account/<%= account.id %>">
+				<%= account.name %>
+			</a>
+		</li>
+		<% }); %>
+	</ul>
+</div>
