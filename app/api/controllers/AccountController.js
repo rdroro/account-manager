@@ -20,10 +20,21 @@
  },
 
  accountDetail: function (req, resp) {
-    // isAccountOwner set req.param.account
-    var currentAccount = req.param.account;
-    resp.send('200', currentAccount.name+' is own');
-  }
+  Account.findOneById(req.param('id'))
+  .exec(function(err, currentAccount){
+    Outgoings.findByAccount(currentAccount.id)
+    .exec(function (err, outgoings) {
+      if (err) {
+        resp.send(500);
+      }
+      resp.view('account/accountDetail', {
+        account: currentAccount,
+        outgoings: outgoings
+      });
+    });
+  });
+
+}
 
 };
 

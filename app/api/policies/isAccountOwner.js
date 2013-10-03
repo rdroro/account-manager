@@ -9,10 +9,9 @@
   var accountList = req.session.user.accounts;
   // Check if user is the owner of selected account
   /*User is the owner if account is in the list
-   req.session.user.account/. List is set during signin action*/
+  req.session.user.account/. List is set during signin action*/
   for (var i = 0; i < accountList.length; i++) {
    if (accountList[i].id == accountId) {
-    req.param.account = accountList[i];
     return ok();
   }
 }

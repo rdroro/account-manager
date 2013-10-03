@@ -3,6 +3,7 @@
   "user.email": 				"Email",
   "user.password":				"Password",
   "user.signin":				"Sign in",
+  "currency":					"€", 
   "sails.config.appName": 		"Account Bank Mangager"
 
 }

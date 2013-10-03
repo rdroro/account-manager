@@ -50,6 +50,9 @@
         .exec(function (err, accounts) {
           req.session.user.accounts = accounts;
         });
+        if (req.answerPage) {
+          return resp.redirect(req.answerPage);
+        }
   			resp.redirect('/accounts');
   		} else {
   			resp.send(403);

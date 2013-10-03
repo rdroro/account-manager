@@ -7,8 +7,7 @@
  * Feel free to change none, some, or ALL of this file to fit your needs!
  */
 
-
-(function (io) {
+ (function (io) {
 
   // as soon as this file is loaded, connect automatically, 
   var socket = io.connect();
@@ -18,18 +17,20 @@
 
   socket.on('connect', function socketConnected() {
 
-    // Listen for Comet messages from Sails
-    socket.on('message', function messageReceived(message) {
+    // // Listen for Comet messages from Sails
+    // socket.on('message', function messageReceived(message) {
 
-      ///////////////////////////////////////////////////////////
-      // Replace the following with your own custom logic
-      // to run when a new message arrives from the Sails.js
-      // server.
-      ///////////////////////////////////////////////////////////
-      log('New comet message received :: ', message);
-      //////////////////////////////////////////////////////
+    //   ///////////////////////////////////////////////////////////
+    //   // Replace the following with your own custom logic
+    //   // to run when a new message arrives from the Sails.js
+    //   // server.
+    //   ///////////////////////////////////////////////////////////
+    //   log('New comet message received :: ', message);
+    //   //////////////////////////////////////////////////////
 
-    });
+    // });
+
+ 
 
 
     ///////////////////////////////////////////////////////////
@@ -38,9 +39,9 @@
     // the Sails.js server.
     ///////////////////////////////////////////////////////////
     log(
-        'Socket is now connected and globally accessible as `socket`.\n' + 
-        'e.g. to send a GET request to Sails, try \n' + 
-        '`socket.get("/", function (response) ' +
+      'Socket is now connected and globally accessible as `socket`.\n' + 
+      'e.g. to send a GET request to Sails, try \n' + 
+      '`socket.get("/", function (response) ' +
         '{ console.log(response); })`'
     );
     ///////////////////////////////////////////////////////////
@@ -68,4 +69,4 @@
   // you can replace `window.io` with your own `io` here:
   window.io
 
-);
+  );

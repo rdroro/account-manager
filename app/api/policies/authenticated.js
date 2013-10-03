@@ -10,6 +10,7 @@ module.exports = function (req, resp, ok) {
 
   // User is not allowed
   else {
+  	req.answerPage = req.url;
     return resp.view('user/signin');
   }
 };

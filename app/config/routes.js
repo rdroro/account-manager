@@ -52,9 +52,14 @@
     action:       'accountList'
   },
 
-  '/account/:id': {
+  '/account-detail/:id': {
     controller:   'AccountController',
     action:       'accountDetail'
+  },
+
+  '/outgoings/checkedToggle/:id': {
+    controller:   'OutgoingsController',
+    action:       'checkedToggle'
   }
 
   /*
