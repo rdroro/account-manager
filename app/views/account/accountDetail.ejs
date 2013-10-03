@@ -1,0 +1,75 @@
+<div class="well">
+	<h1><%= account.name %>: <span class='balance'><%= account.balance %> </span> <%= i18n('currency') %></h1>
+
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Label</th>
+			<th>Outgoings</th>
+			<th>Checked</th>
+		</tr>
+		<% _.each(outgoings, function(outgoing){ %>
+		<tr class='outgoings-row'>
+			<input type='hidden' name='outgoing-id' class='outgoing-id' value='<%=  outgoing.id %>'>
+			<td> <%= outgoing.label %> </td>
+			<td> <%= outgoing.amount %> </td>
+			<td> <input type='checkbox' class='outgoings-checked' <% if(outgoing.checked) { %>checked='checked' <% } %> > </td>
+		</tr>
+		<% }); %>
+		<tr>
+			<td>Total</td>
+			<td class="balance"><%= account.balance %></td>
+			<td></td>
+		</tr>
+	</table>
+
+	<div class="well">
+		<label for='label'>Label:</label>
+		<input type='text' id='label'>
+		<label for='amount'>Amount:</label>
+		<input type='text' id='amount'>
+		<input type='button' value='add'>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+var accountId = <%= account.id%> ;
+
+var createAction = function (outgoing) {
+	var $table = $('.outgoings-row').last();
+	$table.after('<tr class="outgoings-row"> <input type="hidden" name="outgoing-id" class="outgoing-id" value="'+ outgoing.id +'">	<td> '+ outgoing.label +' </td>	<td> '+ outgoing.amount +'</td>	<td> <input type="checkbox" outgoings-checked" >'+' </td>	</tr>');
+};
+
+var destroyAction = function (id) {
+	var $tr = $("input[value='"+id+"']").parent('.outgoings-row');
+	$tr.remove();
+};
+
+var updateBalance = function() {
+	socket.get('/account/'+accountId, function (account) {
+			$('.balance').html(account.balance);
+		});
+}
+
+$(".table").on('change', '.outgoings-checked', function (el) {	
+	var p = $(this).parents('tr');
+	var id =  p.find('.outgoing-id').attr('value');
+	socket.get("/outgoings/checkedToggle/"+id, function(resp){
+		updateBalance();
+	});
+})
+
+socket.request('/outgoings', {}, function (response){
+	socket.on('message', function (msg) {
+
+		if (msg.verb == "create") {
+			createAction(msg.data);
+		}
+		if (msg.verb == "destroy") {
+			destroyAction(msg.id);
+		}
+  });
+});
+
+
+</script>
