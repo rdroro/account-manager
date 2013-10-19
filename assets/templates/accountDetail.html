@@ -1,0 +1,31 @@
+<div class="container">
+	<h1>{{account.name}} - {{account.balance}} €</h1>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Label</th>
+				<th>Amount</th>
+				<th>Checked</th>
+			</tr>
+		</thead>
+		<tbody class='r'>
+			<tr ng-repeat='outgoing in outgoings'>
+				<td class='col-md-8'>{{outgoing.label}}</td>
+				<td class='col-md-3'>{{outgoing.amount}}</td>
+				<td class='col-md-1'><input type='checkbox'></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td>{{account.balance}} €</td>
+				<td>{{account.balance}} €</td>
+			</tr>
+			<tr>
+				<form ng-submit='add()'>
+					<td><input type='text' ng-model='label'></td>
+					<td><input type='text' ng-model='amount'></td>
+					<td><button type='submit'>Add</button></td>
+				</form>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -16,14 +16,15 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
-  UserController: 	{
-  	'signin': true
-  },
-  AccountController: {
-  	'accountList': 'authenticated',
-  	'accountDetail': ['authenticated', 'isAccountOwner']
-  },
-  '*': 'authenticated',
+  // UserController: 	{
+  // 	'signin': true
+  // },
+  // AccountController: {
+  // 	'accountList': 'authenticated',
+  // 	'accountDetail': ['authenticated', 'isAccountOwner']
+  // },
+  // '*': 'authenticated',
+  '*': true
 
 
   /*

@@ -14,9 +14,7 @@
   */
 
   accountList: function (req, resp) {
-   resp.view('account/accountList', {
-    accounts: req.session.user.accounts
-  });
+   resp.view('angularView.ejs');
  },
 
  accountDetail: function (req, resp) {
