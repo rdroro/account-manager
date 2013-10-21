@@ -12,12 +12,12 @@
 			<tr ng-repeat='outgoing in outgoings'>
 				<td class='col-md-8'>{{outgoing.label}}</td>
 				<td class='col-md-3'>{{outgoing.amount}}</td>
-				<td class='col-md-1'><input type='checkbox'></td>
+				<td class='col-md-1'><input ng-checked='outgoing.checked' ng-click='checkAction(outgoing)' ng-model='outgoing.checked' type='checkbox'></td>
 			</tr>
 			<tr>
 				<td>Total</td>
 				<td>{{account.balance}} €</td>
-				<td>{{account.balance}} €</td>
+				<td>{{preBalance}} €</td>
 			</tr>
 			<tr>
 				<form ng-submit='add()'>

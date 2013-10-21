@@ -30,9 +30,11 @@
  	 		.exec(function (err, account){
  	 			if (outgoing.checked) {
  	 				account.balance += outgoing.amount;
+ 	 				account.balance = account.balance.toFixed(2);
  	 			}
  	 			else {
  	 				account.balance -= outgoing.amount;
+ 	 				account.balance = account.balance.toFixed(2);
  	 			}
  	 			account.save(function(err){
  	 				console.log("operation Done");
