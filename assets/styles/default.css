@@ -1,3 +1,13 @@
 body {
 	font-size: small!important;
+	background: url('../images/binding_dark.png');
+}
+
+#table-outgoings {
+	background-color: #fff;
+}
+
+.input-border-bottom {
+	border: 0;
+	border-bottom: 2px solid #ccc;
 }

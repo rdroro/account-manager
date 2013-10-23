@@ -24,7 +24,7 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
       account: $scope.account.id
     };
     Outgoing.create(outgoing, function (createdOutgoing, responseHeaders) {
-      $scope.preBalance += parseFloat(createdOutgoing.amount);
+      $scope.preBalance = parseFloat($scope.preBalance) + parseFloat(createdOutgoing.amount);
       $scope.outgoings.push(createdOutgoing);
       $scope.label='';
       $scope.amount='';
