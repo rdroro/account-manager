@@ -18,41 +18,42 @@
    * in the current month and unchecked outgoings
    *
    */
-  //  find: function (req, resp) {
-  //   var begin = new Date();
-  //   var end = new Date();
-  //   begin.setDate(20);
-  //   end.setDate(31);
+   find: function (req, resp) {
+    var begin = new Date();
+    begin.setDate(1);
 
-  //   Outgoings.find({
-  //     where: {
-  //       or: [
-  //       { 
-  //         createdAt: {
-  //           '>=': begin.toJSON() 
-  //         }
-  //       },
-  //       { 
-  //         checkedDate: ""
-  //       }
-  //       ]
-  //     }
-  //   }).exec( function (err, outgoings) {
-  //     console.log(outgoings);
-  //     resp.send(outgoings);
-  //   });
-  // },
+    // On récupère seulement les dépenses non checkées +
+    // Celles dont la date de check est supérieur au premier jour du mois
+    // en cours
+    Outgoings.find({
+      where: {
+        or: [
+        { 
+          checked: false
+        },
+        { 
+          checkedDate: {
+            ">=": begin.toJSON()
+          }
+        }
+        ]
+      }
+    }).exec( function (err, outgoings) {
+      console.log(outgoings);
+      resp.send(outgoings);
+    });
+  },
 
-checkedToggle: function (req, resp) {
- var id = req.param('id');
+  checkedToggle: function (req, resp) {
+   var id = req.param('id');
 
- Outgoings.findOneById(id)
- .exec(function (err, outgoing){
-  if (err) { return 'bad'; }
-  Outgoings.checkedToggle(outgoing);
-  return resp.send(200);
-});
-}
+   Outgoings.findOneById(id)
+   .exec(function (err, outgoing){
+    if (err) { return 'bad'; }
+    Outgoings.checkedToggle(outgoing);
+    return resp.send(200);
+  });
+ }
 
 
 };

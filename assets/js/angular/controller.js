@@ -8,13 +8,14 @@ function AccountCtrl($scope, $routeParams, Account) {
 
 function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
 
-  $scope.account = Account.get({id: $routeParams.accountId});
-  $scope.outgoings = Outgoing.query({account: $routeParams.accountId }, function (){
-    $scope.preBalance = 0;
-    for (var i = 0; i < $scope.outgoings.length; i++) {
-      $scope.preBalance += parseFloat($scope.outgoings[i].amount);
-    }
-    $scope.preBalance = $scope.preBalance.toFixed(2);
+  $scope.account = Account.get({id: $routeParams.accountId}, function(){
+    $scope.outgoings = Outgoing.query({account: $routeParams.accountId }, function (){
+      $scope.preBalance = $scope.account.balance;
+      for (var i = 0; i < $scope.outgoings.length; i++) {
+        $scope.preBalance += parseFloat($scope.outgoings[i].amount);
+      }
+      $scope.preBalance = $scope.preBalance.toFixed(2);
+    });
   });
   $scope.add = function () {
     var outgoing = {

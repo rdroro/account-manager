@@ -14,8 +14,10 @@
  		amount:			'float',
  		label: 			'string',
  		checked: 		'boolean',
- 		checkedDate:  	'date'
-
+ 		checkedDate: { 	
+ 			type: 'date',
+ 			defaultsTo: '1990-01-16T08:01:00.310Z'
+ 		}
  	},
 
  	/**
