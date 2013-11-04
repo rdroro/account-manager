@@ -1,35 +1,36 @@
-<div class="container">
-	<h1>{{account.name}} - {{account.balance | number:2}} €</h1>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<table class="table table-bordered table-striped table-hover" id='table-outgoings'>
-				<thead>
-					<tr>
-						<th>Label</th>
-						<th>Amount</th>
-						<th>Checked</th>
-					</tr>
-				</thead>
-				<tbody class=''>
-					<tr ng-repeat='outgoing in outgoings'>
-						<td class='col-md-8'>{{outgoing.label}}</td>
-						<td class='col-md-3'>{{outgoing.amount | number:2}}</td>
-						<td class='col-md-1'><input ng-checked='outgoing.checked' ng-click='checkAction(outgoing)' ng-model='outgoing.checked' type='checkbox'></td>
-					</tr>
-					<tr>
-						<td>Total</td>
-						<td>{{account.balance | number:2}} €</td>
-						<td>{{preBalance | number:2}} €</td>
-					</tr>
-					<tr>
-						<form ng-submit='add()'>
-							<td><input class='input-lg input-border-bottom' type='text' ng-model='label' placeholder='Label'></td>
-							<td><input class='input-lg input-border-bottom' type='text' ng-model='amount' placeholder='Amount'></td>
-							<td><button class='btn btn-warning' type='submit'>Add</button></td>
-						</form>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+
+<h1>{{account.name}} &loz; {{account.balance | currency}}</h1>
+<div class="row">
+	<div class="col-md-8 col-md-offset-1">
+		<table class="table table-bordered table-hover" id='table-outgoings'>
+			<thead>
+				<tr>
+					<th>Label</th>
+					<th>Amount</th>
+					<th>Checked</th>
+				</tr>
+			</thead>
+			<tbody class=''>
+				<tr ng-repeat='outgoing in outgoings' ng-class='{success: outgoing.checked}'>
+					<td class='col-md-8'>{{outgoing.label}}</td>
+					<td class='col-md-2' ng-class='{positif: outgoing.amount >=0, negatif: outgoing.amount <0 }'>
+						{{outgoing.amount | number:2}} €
+					</td>
+					<td class='col-md-2'><input ng-checked='outgoing.checked' ng-click='checkAction(outgoing)' ng-model='outgoing.checked' type='checkbox'></td>
+				</tr>
+				<tr class="bold">
+					<td>Total</td>
+					<td>{{account.balance | currency}}</td>
+					<td>{{preBalance | currency}}</td>
+				</tr>
+				<tr>
+					<form ng-submit='add()'>
+						<td><input class='input-lg input-border-bottom' type='text' ng-model='label' placeholder='Label'></td>
+						<td><input class='input-lg input-border-bottom' type='text' ng-model='amount' placeholder='Amount'></td>
+						<td><button class='btn btn-warning' type='submit'>Add</button></td>
+					</form>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/styles/default.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="/js/angular/angular-locale_fr-fr.js"></script>
 	<script src="/js/angular/app.js"></script>
 	<script src="/js/angular/controller.js"></script>
 	<script src="/js/angular/service.js"></script>
@@ -16,6 +17,20 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div ng-view></div>
+	<div class="row">
+		<div class="col-md-2" ng-controller='AccountCtrl'>
+			<h1> <a href="#/">Account List </a></h1>
+			<div class="well">
+				<ul class='nav' ng-repeat='account in accounts'>
+					<li>
+						<a href="#/account/{{account.id}}">
+							{{account.name}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div ng-view class="col-md-10"></div>
+	</div>
 </body>
 </html>

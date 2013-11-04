@@ -14,8 +14,12 @@ h1 {
 	font-family: 'Harabara';
 }
 
-#table-outgoings {
+table {
 	background-color: #fff;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 #table-outgoings td {
@@ -25,4 +29,12 @@ h1 {
 .input-border-bottom {
 	border: 0;
 	border-bottom: 2px solid #ccc;
+}
+
+.positif {
+	color: green;
+}
+
+.negatif {
+	color: red;
 }

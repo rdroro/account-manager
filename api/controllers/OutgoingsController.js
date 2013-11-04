@@ -21,12 +21,14 @@
    find: function (req, resp) {
     var begin = new Date();
     begin.setDate(1);
+    var accountId = req.param('account');
 
     // On récupère seulement les dépenses non checkées +
     // Celles dont la date de check est supérieur au premier jour du mois
     // en cours
-    Outgoings.find({
-      where: {
+    Outgoings.find()
+      .where({account: accountId})
+      .where( {
         or: [
         { 
           checked: false
@@ -38,8 +40,7 @@
         }
         ]
       }
-    }).exec( function (err, outgoings) {
-      console.log(outgoings);
+    ).exec( function (err, outgoings) {
       resp.send(outgoings);
     });
   },

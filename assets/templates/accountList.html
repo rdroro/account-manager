@@ -1,10 +1,29 @@
-<div class="well">
-	<h1>Account List</h1>
-	<ul ng-repeat='account in accounts'>
-		<li>
-			<a href="#/account/{{account.id}}">
-				{{account.name}}
-			</a>
-		</li>
-	</ul>
+<h1>Please select an account</h1>
+<div class="row">
+	<div class="col-md-6">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Account</th>
+					<th>Balance</th>
+				</tr>
+			</thead>
+			<tbody class=''>
+				<tr ng-repeat='account in accounts'>
+					<td class="col-md-4"> 
+						<a href="#/account/{{account.id}}">
+							{{account.name}}
+						</a>
+					</td>
+					<td class="col-md-2"> 
+						{{account.balance | currency}}
+					</td>
+				</tr>
+				<tr class="active bold">
+					<td>Total</td>
+					<td>{{total | currency}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>

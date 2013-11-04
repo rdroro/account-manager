@@ -3,7 +3,13 @@
 /* Controllers */
 
 function AccountCtrl($scope, $routeParams, Account) {
-  $scope.accounts = Account.query();
+  $scope.total = 0;
+  $scope.accounts = Account.query(function () {
+    for (var i = 0; i < $scope.accounts.length; i++) {
+      $scope.total += parseFloat($scope.accounts[i].balance);
+    };
+
+  });
 };
 
 function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
@@ -12,7 +18,7 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
     $scope.outgoings = Outgoing.query({account: $routeParams.accountId }, function (){
       $scope.preBalance = $scope.account.balance;
       for (var i = 0; i < $scope.outgoings.length; i++) {
-        $scope.preBalance += parseFloat($scope.outgoings[i].amount);
+        $scope.preBalance += (! $scope.outgoings[i].checked) ? parseFloat($scope.outgoings[i].amount) : 0;
       }
       $scope.preBalance = $scope.preBalance.toFixed(2);
     });
