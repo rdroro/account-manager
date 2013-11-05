@@ -1,16 +1,19 @@
 /**
  * Allow any authenticated user.
  */
-module.exports = function (req, resp, ok) {
+ module.exports = function (req, resp, ok) {
 
   // User is allowed, proceed to controller
   if (req.session.user) {
-    return ok();
+  	return ok();
   }
-
   // User is not allowed
   else {
-  	req.answerPage = req.url;
-    return resp.view('user/signin');
+  	if (req.isAjax) {
+  		return resp.send(403, 'Need authenticated user');
+  	} else {
+  		return resp.view('user/signin');
+  	}
   }
+  
 };

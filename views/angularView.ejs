@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 	<title>Account Manager</title>
-	<link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+	<!-- <link rel="shortcut icon" type="image/png" href="/images/favicon.png" /> -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/styles/default.css">
 
@@ -20,12 +20,15 @@
 	<div class="row">
 		<div class="col-md-2" ng-controller='AccountCtrl'>
 			<h1> <a href="#/">Account List </a></h1>
-			<div class="well">
-				<ul class='nav' ng-repeat='account in accounts'>
-					<li>
+			<div class="">
+				<ul class='nav'>
+					<li ng-repeat='account in accounts'>
 						<a href="#/account/{{account.id}}">
 							{{account.name}}
 						</a>
+					</li>
+					<li>
+						<a target='_blank' href="https://www.secure.bnpparibas.net"> BNP Paribas</a>
 					</li>
 				</ul>
 			</div>

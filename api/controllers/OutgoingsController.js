@@ -22,6 +22,7 @@
     var begin = new Date();
     begin.setDate(1);
     var accountId = req.param('account');
+    
 
     // On récupère seulement les dépenses non checkées +
     // Celles dont la date de check est supérieur au premier jour du mois

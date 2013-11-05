@@ -14,7 +14,7 @@
 				<tr ng-repeat='outgoing in outgoings' ng-class='{success: outgoing.checked}'>
 					<td class='col-md-8'>{{outgoing.label}}</td>
 					<td class='col-md-2' ng-class='{positif: outgoing.amount >=0, negatif: outgoing.amount <0 }'>
-						{{outgoing.amount | number:2}} €
+						{{outgoing.amount | currency}}
 					</td>
 					<td class='col-md-2'><input ng-checked='outgoing.checked' ng-click='checkAction(outgoing)' ng-model='outgoing.checked' type='checkbox'></td>
 				</tr>

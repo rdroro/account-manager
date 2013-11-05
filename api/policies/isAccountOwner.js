@@ -4,7 +4,7 @@
  module.exports = function (req, resp, ok) {
 
   // The user must be owner of account
-  var accountId = req.param('id');
+  var accountId = req.param('account');
   if (!accountId) { return resp.send(404); }
   var accountList = req.session.user.accounts;
   // Check if user is the owner of selected account
@@ -15,5 +15,6 @@
     return ok();
   }
 }
+
 return resp.send(403, 'You are not the Owner of account');
 };

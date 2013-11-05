@@ -23,6 +23,8 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
       $scope.preBalance = $scope.preBalance.toFixed(2);
     });
   });
+
+
   $scope.add = function () {
     var outgoing = {
       label: $scope.label,
