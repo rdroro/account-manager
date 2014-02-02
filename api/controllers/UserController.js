@@ -34,10 +34,9 @@
   			return;
   		} 
 
-  		if (user.length === 0) {
-  			resp.send(403);
-  			return;
-  		}
+      if (!user) {
+        return resp.send(403);
+      }
 
   		// Login found, let's check password
   		var c = require('crypto');

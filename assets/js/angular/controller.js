@@ -27,7 +27,7 @@ function AccountCtrl($scope, $routeParams, Account) {
       Account.create($scope.account, 
          function (createdAccount, responseHeaders) {
          // Check Why failed
-           $location.path("/accounts");
+            window.location = '/accounts';
          }, function (error) {
           $.pnotify({
             title: "Error",
