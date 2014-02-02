@@ -6,7 +6,7 @@
  *
  */
 
- var AccountBalance = {
+ module.exports = {
 
  	attributes: {
 
@@ -18,5 +18,3 @@
  	}
 
  };
-
- module.exports = AccountBalance;

@@ -33,8 +33,7 @@
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
   '/': {
-    controller:   'AccountController',
-    action:       'accountList'
+   controller: 'UserController'
   },
 
   'post /signin': {

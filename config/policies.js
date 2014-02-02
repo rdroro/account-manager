@@ -21,10 +21,11 @@
   },
   AccountController: {
   	'find': 'authenticated',
+  	'accountList' : 'authenticated',
   	'accountDetail': ['authenticated', 'isAccountOwner']
   },
   '*': 'authenticated',
-  // '*': true
+  
 
 
   /*

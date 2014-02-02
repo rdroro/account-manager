@@ -6,7 +6,7 @@
  *
  */
 
- var User = {
+module.exports = {
 
  	attributes: {
 
@@ -20,5 +20,3 @@
  	},
 
  };
-
- module.exports = User;

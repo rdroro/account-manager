@@ -9,11 +9,8 @@
   }
   // User is not allowed
   else {
-  	if (req.isAjax) {
-  		return resp.send(403, 'Need authenticated user');
-  	} else {
-  		return resp.view('user/signin');
-  	}
+    //return resp.json({error: 'Need authenticated user'}, 401);
+    return resp.view('signin');
   }
   
 };

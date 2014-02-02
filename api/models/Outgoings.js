@@ -6,7 +6,7 @@
  *
  */
 
- var Outgoings = {
+ module.exports = {
 
  	attributes: {
 
@@ -20,30 +20,26 @@
  		}
  	},
 
- 	/**
- 	 * Checked or unchecked outgoing in parameter
- 	 * and add or remove it from the account balance 
- 	 */
- 	 checkedToggle: 	function(outgoing) { 		
- 	 	outgoing.checked = outgoing.checked == true ? false : true;
- 	 	outgoing.checkedDate = new Date();
- 	 	outgoing.save(function(err) {
- 	 		Account.findOneById(outgoing.account)
- 	 		.exec(function (err, account){
- 	 			if (outgoing.checked) {
- 	 				account.balance += outgoing.amount;
- 	 				account.balance = account.balance.toFixed(2);
- 	 			}
- 	 			else {
- 	 				account.balance -= outgoing.amount;
- 	 				account.balance = account.balance.toFixed(2);
- 	 			}
- 	 			account.save(function(err){
- 	 				console.log("operation Done");
- 	 			});
- 	 		});
- 	 	});
- 	 }
- 	};
-
- 	module.exports = Outgoings;
+ 	/* Checked or unchecked outgoing in parameter
+ 	* and add or remove it from the account balance */
+ 	checkedToggle: 	function(outgoing) { 		
+ 		outgoing.checked = outgoing.checked == true ? false : true;
+ 		outgoing.checkedDate = new Date();
+ 		outgoing.save(function(err) {
+ 			Account.findOneById(outgoing.account)
+ 			.exec(function (err, account){
+ 				if (outgoing.checked) {
+ 					account.balance += outgoing.amount;
+ 					account.balance = account.balance.toFixed(2);
+ 				}
+ 				else {
+ 					account.balance -= outgoing.amount;
+ 					account.balance = account.balance.toFixed(2);
+ 				}
+ 				account.save(function(err){
+ 					console.log("Toggle status");
+ 				});
+ 			});
+ 		});
+ 	},
+ };

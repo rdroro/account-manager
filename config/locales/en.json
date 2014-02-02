@@ -4,6 +4,6 @@
   "user.password":				"Password",
   "user.signin":				"Sign in",
   "currency":					"€", 
-  "sails.config.appName": 		"Account Bank Mangager"
+  "sails.config.appName": 		"Account Bank Manager"
 
 }

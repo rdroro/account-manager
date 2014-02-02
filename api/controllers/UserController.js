@@ -7,11 +7,12 @@
 
  var UserController = {
 
-  /* e.g.
-  sayHello: function (req, res) {
-    res.send('hello world!');
-  }
-  */
+  index : function (req, resp) {
+    if (req.session.user) {
+      return resp.redirect('/accounts');
+    }
+    return resp.view('signin');
+  },
 
   signin: function (req, resp) {
     if (req.session.user) {
@@ -26,7 +27,7 @@
     }
 
   	User.findOneByLogin(login)  	
-  	.exec(function(err, user){
+  	.done(function(err, user){
   		if (err) {
   			// Do error stuff
   			resp.send(500, {error: 'Data Access Error'});

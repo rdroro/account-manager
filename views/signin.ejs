@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+
+   <title><%= i18n('sails.config.appName') %></title>
+
+   <!-- Viewport mobile tag for sensible mobile support -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   <<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="/styles/default.css">
+   <link rel="stylesheet" type="text/css" href="/js/lib/pnotify-1.2.0/jquery.pnotify.default.css">
+
+   <script type="text/javascript" src='/js/lib/jquery-2.0.3.js'></script>
+
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+   <script type="text/javascript" src='/js/lib/pnotify-1.2.0/jquery.pnotify.js'></script>
+
+
+</head>
+
+<body>
+
+   <div class="container">
+      <h1>Account Manager</h1>
+      <div class="row">
+         <div class="col-md-6 col-md-offset-3 col-xs-12 well">
+            <form class="form-horizontal" role="form" action="/signin" method="post">
+               <div class="form-group">
+                  <label for="inputEmail1" class="col-xs-2 control-label">
+                     <%= i18n('user.email') %>
+                  </label>
+                  <div class="col-xs-10">
+                     <input type="" class="input-lg form-control input-border-bottom" id="inputEmail1" placeholder="<%= i18n('user.email') %>" name='login'>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="inputPassword1" class="col-xs-2 control-label"><%= i18n('user.password') %></label>
+                  <div class="col-xs-10">
+                     <input type="password" class="input-lg input-border-bottom form-control" id="inputPassword1" placeholder="<%= i18n('user.password') %>" name='password'>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-xs-offset-2 col-xs-10">
+                     <button type="submit" class="btn btn-success"><%= i18n('user.signin') %></button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+
+   </div>
+
+</body>
+</html>
