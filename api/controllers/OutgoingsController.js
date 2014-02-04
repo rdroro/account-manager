@@ -7,13 +7,10 @@
 
 module.exports = {
 
-   error: function (msg, code, resp) {
-      resp.json({error: msg}, code);
-   },
-
    /**
-   * Method GET /outgoings/account=INTERGER
-   * return only outgoings for account in parameter
+   * Overwrite the default behaviour of find
+   * by retourning only outgoings for account in parameter
+   * Method GET /outgoings/:account type interger
    * outgoings filter : checked = false or checkedDate in current month
    */
    find: function (req, resp) {
@@ -23,6 +20,7 @@ module.exports = {
       begin.setHours(0, 0, 0, 0);
 
       var accountId = req.param('account');
+
       Outgoings.find()
       .where({account: accountId})
       .where( {
@@ -38,8 +36,11 @@ module.exports = {
          ]
       }
       ).exec( function (err, outgoings) {
-         resp.send(outgoings);
-      });
+         if (err) {
+           return ErrorHandling.internal(err, resp);
+        }
+        resp.json(outgoings, 200);
+     });
    },
 
    /**
@@ -52,10 +53,7 @@ module.exports = {
       Outgoings.findOneById(id)
       .exec(function (err, outgoing){
          if (err) { 
-            return sails.controllers.outgoings.error(
-               "Ressource not found!", 
-               404, 
-               resp);
+            return ErrorHandling.internal(err, resp);
          }
          Outgoings.checkedToggle(outgoing);
          return resp.send(200);
@@ -63,6 +61,7 @@ module.exports = {
    },
 
    /**
+   * Overwrite the default behaviour of destroy
    * method DELETE /outgoings/id=INTEGER
    * Try to delete outgoing identified by id in parameter
    * condition : Delete unchecked outgoings
@@ -72,25 +71,14 @@ module.exports = {
       var id = req.param('id');
       Outgoings.findOne(id).done(function (err, outgoing) {
          if (err) {
-            return sails.controllers.outgoings.error(
-               "Server error. Please contact administrator", 
-               503, 
-               resp);
+            return ErrorHandling.internal(err, resp);
          }
          if (outgoing.checked) {
-            return sails.controllers.outgoings.error(
-               "You can't remove a checked outgoing. Please unchecked it and try again", 
-               403, 
-               resp);
-            
-
+            return ErrorHandling.forbidden(err, resp);
          }
          outgoing.destroy(function (err) {
             if (err) {
-               return sails.controllers.outgoings.error(
-                  "Server error. Please contact administrator", 
-                  503, 
-                  resp);
+               return ErrorHandling.internal(err, resp);
             }
             resp.send(200);
          });

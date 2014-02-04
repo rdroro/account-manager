@@ -8,6 +8,7 @@ This application use Sails (a Realtime MVC framework for Nodejs [Sails website](
 This application is under development, Do not use this version except to take a look at code ! This is crap
 
 @Todo 
+- find a best practice to manager asynchrononous issue (see model.Account.userIsOwner)
 - feature: Add user and default user
 - documentation: Write user guide
 - unit and fonctionnal test

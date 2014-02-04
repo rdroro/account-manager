@@ -1,22 +1,22 @@
 /**
- * User
- *
- * @module      :: Model
- * @description :: User is a reprensation of user can access to the application
- *
- */
+* User
+*
+* @module      :: Model
+* @description :: User is a reprensation of user can access to the application
+*
+*/
 
 module.exports = {
 
- 	attributes: {
+	attributes: {
 
 
- 		login: 		'string',
- 		name: 		'string',
- 		password: 	'string',
- 		avatar: 	'string'
+		login: 		'string',
+		name: 		'string',
+		password: 	'string',
+		avatar: 	'string'
 
 
- 	},
+	}
 
- };
+};

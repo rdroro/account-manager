@@ -1,7 +1,7 @@
 {
     "name": "Account-manager",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.4.0",
     "description": "Account bank manager developed with Sails Framework",
     "dependencies": {
         "sails": "0.9.8",
@@ -16,7 +16,10 @@
         "debug": "node debug app.js"
     },
     "main": "app.js",
-    "repository": "",
-    "author": "",
-    "license": ""
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rdroro/account-manager"
+    },
+    "author": "Romain Dubos <romain.dubos@gmail.com>",
+    "license": "MIT"
 }

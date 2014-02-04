@@ -22,7 +22,7 @@
  * http://sailsjs.org/#documentation
  */
 
-module.exports = {
+ module.exports = {
 
 
   // The `port` setting determines which TCP port your app will be deployed on
@@ -52,6 +52,13 @@ module.exports = {
   // By default, Sails sets its environment using the `NODE_ENV` environment variable.
   // If NODE_ENV is not set, Sails will run in the 'development' environment.
 
-  environment: process.env.NODE_ENV || 'development'
+  environment: process.env.NODE_ENV || 'development',
+
+  adapters: {
+        mysql: {
+            user: 'account-manager',
+            password: 'U6vqAH2dsDpQcfrG'
+        }
+    }
 
 };

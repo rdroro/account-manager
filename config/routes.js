@@ -46,14 +46,10 @@
     action: 'signout'
   },
 
+  /* Entry point of Angular application */
   '/accounts': {
     controller:   'AccountController',
     action:       'accountList'
-  },
-
-  '/account-detail/:id': {
-    controller:   'AccountController',
-    action:       'accountDetail'
   },
 
   '/outgoings/checkedToggle/:id': {

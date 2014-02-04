@@ -20,11 +20,11 @@
   	'signin': true
   },
   AccountController: {
+  	// need authentification for GET request to /account 
+  	// 'find': ['authenticated', 'isAccountOwner']
   	'find': 'authenticated',
-  	'accountList' : 'authenticated',
-  	'accountDetail': ['authenticated', 'isAccountOwner']
   },
-  '*': 'authenticated',
+  '*': "authenticated",
   
 
 

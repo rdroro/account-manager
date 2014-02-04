@@ -26,7 +26,6 @@ function AccountCtrl($scope, $routeParams, Account) {
       $scope.account.name = $.trim($scope.account.name);
       Account.create($scope.account, 
          function (createdAccount, responseHeaders) {
-         // Check Why failed
             window.location = '/accounts';
          }, function (error) {
           $.pnotify({
@@ -94,7 +93,9 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
       Outgoing.delete(outgoing,
          //Success
          function (deletedOutgoing, responseHeaders){
-            $scope.preBalance = parseFloat($scope.preBalance) - parseFloat(deletedOutgoing.amount);
+            console.log(parseFloat($scope.preBalance));
+            console.log(parseFloat(outgoing.amount));
+            $scope.preBalance = parseFloat($scope.preBalance) - parseFloat(outgoing.amount);
             $scope.outgoings.splice($scope.outgoings.indexOf(outgoing), 1);
          }, 
          // Error

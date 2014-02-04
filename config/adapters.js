@@ -16,7 +16,7 @@ module.exports.adapters = {
 
   // If you leave the adapter config unspecified 
   // in a model definition, 'default' will be used.
-  'default': 'mysql',
+  'default': 'disk',
 
   // In-memory adapter for DEVELOPMENT ONLY
   memory: {
@@ -35,10 +35,7 @@ module.exports.adapters = {
 
     module: 'sails-mysql',
     host: 'localhost',
-    user: 'account-manager',
-    // Psst.. You can put your password in config/local.js instead
-    // so you don't inadvertently push it up if you're using version control
-    password: 'U6vqAH2dsDpQcfrG', 
     database: 'account_manager'
+    
   }
 };

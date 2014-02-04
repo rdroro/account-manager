@@ -21,7 +21,7 @@
   	var login = req.param('login');
   	var password = req.param('password');
 
-    if (!login || ! password) {
+    if (!login || !password) {
       resp.send(403);
       return;
     }

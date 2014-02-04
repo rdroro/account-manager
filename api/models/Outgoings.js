@@ -37,7 +37,7 @@
  					account.balance = account.balance.toFixed(2);
  				}
  				account.save(function(err){
- 					console.log("Toggle status");
+ 					sails.log.debug("Status change for outgoing");
  				});
  			});
  		});
