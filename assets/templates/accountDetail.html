@@ -29,15 +29,15 @@
 						<td class='text-size-medium'>{{preBalance | currency}}</td>
 					</tr>
 					<tr>
-						<form ng-submit='add()'>
-							<td class=''>
+						<form ng-submit='add2()'>
+							<td>
 								<input class='form-control input-lg input-border-bottom' type='text' ng-model='label' placeholder='Label'>
 							</td>
 							<td>
 								<input class='form-control input-lg input-border-bottom' type='text' ng-model='amount' placeholder='Amount'>
 							</td>
 							<td>
-								<button class='btn btn-warning' type='submit'>Add</button>
+								<button class='btn btn-warning' type='submit' ng-click='add()'>Add</button>
 							</td>
 						</form>
 					</tr>
