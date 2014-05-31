@@ -34,7 +34,7 @@ function AccountCtrl($scope, $routeParams, Account) {
             type: "error"
          });
        })
-   }
+   };
 };
 
 function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
@@ -52,7 +52,6 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
          $scope.preBalance = $scope.preBalance.toFixed(2);
       });
    });
-
 
    $scope.add = function () {
       /* User can separate float number via comma or dot
@@ -72,8 +71,8 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
          $scope.outgoings.push(createdOutgoing);
          $scope.label='';
          $scope.amount='';
-      })
-   },
+      });
+   };
 
    $scope.checkAction = function (outgoing) {
       $http.get('/outgoings/checkedToggle/', { params: {id: outgoing.id }});
@@ -86,7 +85,7 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
          var tmp = parseFloat($scope.account.balance) - parseFloat(outgoing.amount);
          $scope.account.balance = tmp.toFixed(2);
       }
-   }
+   };
 
    $scope.delete = function (outgoing) {
 
@@ -106,7 +105,7 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
                type: "error"
             });
          });
-   }
+   };
 }
 
 
