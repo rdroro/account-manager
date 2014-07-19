@@ -1,30 +1,12 @@
 <h1>Please select an account</h1>
-<div class="row">
 
-	<div class="col-md-12">
-		<table class="table table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>Account</th>
-					<th>Balance</th>
-				</tr>
-			</thead>
-			<tbody class=''>
-				<tr ng-repeat='account in accounts'>
-					<td class="col-md-4"> 
-						<a href="#/account/{{account.id}}">
-							{{account.name}}
-						</a>
-					</td>
-					<td class="col-md-2"> 
-						{{account.balance | currency}}
-					</td>
-				</tr>
-				<tr class="active bold">
-					<td>Total</td>
-					<td>{{total | currency}}</td>
-				</tr>
-			</tbody>
-		</table>
+
+<div class="row">
+	<div ng-repeat="account in accounts" class="col-lg-4 col-xs-12">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 account-widget">
+				<a href="#/account/{{account.id}}"><span class="badge">{{account.name}}</span> <span class="cool-font">{{account.balance | currency}}</span></a>
+			</div>
+		</div>
 	</div>
 </div>

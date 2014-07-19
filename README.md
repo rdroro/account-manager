@@ -14,9 +14,17 @@ Stable version is : 0.4.0 and features are :
 - Add outgoings on accounts
 - View difference between real and future Account balance (cool thing isn't?)
 
+# Browser-sync
+
+You can use browser-sync as:
+
+        $ cd /vagrant
+        $ browser-sync start --files ".tmp/public/styles/*.css, .tmp/public/templates/*.html" --proxy localhost:1337 --host 192.168.0.18
+
 @Todo 
 - find a best practice to manager asynchrononous issue (see model.Account.userIsOwner)
 - feature: Add user and the default user
 - documentation: Write user guide
 - unit and fonctionnal test
+- feature : Add recurrent outgoing
 - deploy mongodb

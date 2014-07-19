@@ -22,6 +22,41 @@ table {
 	font-weight: bold;
 }
 
+.cool-font {
+	font-family: "Harabara";
+	font-size: 20px;
+}
+
+/** Bootstrap Customs **/
+
+.navbar-default {
+	background-color: #F66F60;
+	border: none;
+}
+
+.navbar-default .navbar-nav>li>a , .navbar-default .navbar-header>a {
+	color: #fff;
+}
+
+
+
+/** end Bootstrap Customs **/
+
+.account-widget {
+	background: #08d6bb;
+	padding: 10px;
+	margin-bottom: 20px;
+	color: #fff;
+}
+
+.account-widget a {
+	color: #fff;
+}
+
+.account-widget a:hover {
+	text-decoration: none;
+}
+
 #table-outgoings td {
 	vertical-align: middle;
 }

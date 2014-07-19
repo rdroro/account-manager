@@ -56,8 +56,8 @@
 
   adapters: {
         mysql: {
-            user: 'account-manager',
-            password: 'U6vqAH2dsDpQcfrG'
+            user: 'root',
+            password: 'demo'
         }
     }
 

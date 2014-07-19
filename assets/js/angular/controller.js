@@ -28,13 +28,14 @@ function AccountCtrl($scope, $routeParams, Account) {
          function (createdAccount, responseHeaders) {
             window.location = '/accounts';
          }, function (error) {
-          $.pnotify({
+           $.pnotify({
             title: "Error",
             text: "OoOoOps Impossible to add account",
             type: "error"
          });
-       })
+        })
    };
+
 };
 
 function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
