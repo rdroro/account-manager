@@ -35,9 +35,6 @@ echo "PATH=${PATH}:/opt/applications/node-v0.10.25-linux-x86/bin" >> /home/vagra
 echo "NODE_PATH=/opt/applications/node-v0.10.25-linux-x86/lib/node_modules" >> /home/vagrant/.bashrc
 source /root/.bashrc
 
-pecho "Application tools"
-pecho "-- Install SailsJs"
-/opt/applications/node-v0.10.25-linux-x86/bin/npm install -g sails@0.9.16
 
 chown vagrant:vagrant -R /opt/applications
 

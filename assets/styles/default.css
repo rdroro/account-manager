@@ -30,7 +30,7 @@ table {
 /** Bootstrap Customs **/
 
 .navbar-default {
-	background-color: #F66F60;
+	background-color: #E74C3C;
 	border: none;
 }
 
@@ -38,24 +38,50 @@ table {
 	color: #fff;
 }
 
+.btn {
+	background-color: #E74C3C;
+	color: #fff!important;
+}
+
 
 
 /** end Bootstrap Customs **/
 
+/** .account-widget **/
 .account-widget {
-	background: #08d6bb;
-	padding: 10px;
+	background: #3498DB;
 	margin-bottom: 20px;
 	color: #fff;
+	padding: 0;
+	overflow: hidden;
+}
+
+.account-widget span {
+	position: absolute;
+	top: 0;
+	left:0;
+	padding: 3px 5px;
+	border-radius: 3px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	background-color: #E74C3C;
 }
 
 .account-widget a {
 	color: #fff;
 }
 
+.account-widget div > a {
+	padding: 30px;
+	padding-bottom: 20px;
+	display: block;
+}
+
 .account-widget a:hover {
 	text-decoration: none;
 }
+
+/** end .account-widget **/
 
 #table-outgoings td {
 	vertical-align: middle;
