@@ -31,3 +31,13 @@ function pinstall
 {
         apt-get install -y ${1} > /dev/null
 }
+
+function dbs
+{
+mysql -u root -p -e "show databases"
+}
+
+function tables
+{
+mysql -u root -p -e "use ${1}; show tables;"
+}
