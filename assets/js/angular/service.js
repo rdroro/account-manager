@@ -29,6 +29,15 @@ factory('User', function($resource){
 	});
 });
 
+angular.module('RecurringServices', ['ngResource']).
+factory('Recurring', function($resource){
+	return $resource('recurring/:recurringId', {}, {
+		query: {method:'GET', params:{recurringId:''}, isArray:true},
+		create: {method: 'POST'},
+		delete: {method: 'DELETE'}
+	});
+});
+
 
 
 

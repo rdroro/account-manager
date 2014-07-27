@@ -146,7 +146,52 @@ function UserCtrl($scope, $routeParams, User) {
                type: "error"
             });
          }
-      )
+         )
+   }
+
+}
+
+function RecurringCtrl ($scope, $routeParams, Recurring, Account, $http, $location) {
+   $.pnotify.defaults.styling = "bootstrap3";
+   $.pnotify.defaults.history = false;
+   $scope.account = Account.get({id: $routeParams.accountId}, function(){
+      $scope.outgoings = Recurring.query({account: $routeParams.accountId });
+   });
+
+   $scope.add = function() {
+
+      var recurring = {
+         account: $scope.account.id,
+         label: $scope.label,
+         amount: $scope.amount
+      };
+
+      Recurring.create(recurring, function (createdRecurring, responseHeaders){
+         $scope.outgoings.push(createdRecurring);
+         $scope.label = '';
+         $scope.amount = '';
+      });
+   }
+
+   $scope.delete = function (outgoing) {
+      Recurring.delete(outgoing, 
+         function (deletedOutgoing, responseHeaders) {
+            $scope.outgoings.splice($scope.outgoings.indexOf(outgoing), 1);
+         },
+         function (error) {
+           $.pnotify({
+            title: "Error",
+            text: error.data.error,
+            type: "error"
+         });
+        }
+        )
+   }
+
+   $scope.addAll = function () {
+      var id = $scope.account.id;
+      $http.get('/recurring/add-all/'+id);
+      $location.url("/account/"+id);
    }
 
 }
@@ -158,4 +203,5 @@ function UserCtrl($scope, $routeParams, User) {
 
 myApp.controller('AccountCtrl', ['$scope', '$routeParams', 'Account',  AccountCtrl]);
 myApp.controller('OutgoingCtrl', ['$scope', '$routeParams', 'Outgoing', 'Account', '$http', OutgoingCtrl]);
+myApp.controller('RecurringCtrl', ['$scope', '$routeParams', 'Recurring', 'Account', '$http', '$location', RecurringCtrl]);
 myApp.controller('UserCtrl', ['$scope', '$routeParams', 'User', UserCtrl]);

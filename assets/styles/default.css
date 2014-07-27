@@ -18,6 +18,14 @@ table {
 	background-color: #fff;
 }
 
+a {
+	color: white;
+}
+
+.color {
+	color: #E74C3C;
+}
+
 .bold {
 	font-weight: bold;
 }
@@ -27,10 +35,19 @@ table {
 	font-size: 20px;
 }
 
+.full-width {
+	width: 100%;
+}
+
 .trash:hover {
 	font-size: 16px;
 	color: red;
 	cursor: pointer;
+}
+
+.recurring-outgoing-icon:hover {
+	cursor: pointer;
+	color: #E74C3C;
 }
 
 /** Bootstrap Customs **/

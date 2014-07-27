@@ -1,5 +1,4 @@
-
-<h1>{{account.name}} <span class="glyphicon glyphicon-asterisk"></span> {{account.balance | currency}}</h1>
+<h1><span class="color">{{account.name}}</span> <span class="glyphicon glyphicon-asterisk"></span> {{account.balance | currency}} <a href="#/recurring-outgoings/{{account.id}}"><span class="glyphicon glyphicon-th-list recurring-outgoing-icon" title="Add recurring outgoing"></span></a> </h1>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 col-xs-12">
 		<div class="row">
@@ -14,6 +13,7 @@
 				<tbody class=''>
 					<tr ng-repeat='outgoing in outgoings' ng-class='{success: outgoing.checked}'>
 						<td> {{outgoing.label}} 
+
 							<span ng-if='!outgoing.checked' ng-click='delete(outgoing)' class="pull-right glyphicon glyphicon-trash trash"></span> 
 						</td>
 						<td ng-class='{positif: outgoing.amount >=0, negatif: outgoing.amount <0 }'>

@@ -56,6 +56,11 @@
   '/outgoings/checkedToggle/:id': {
     controller:   'OutgoingsController',
     action:       'checkedToggle'
+  },
+
+  '/recurring/add-all/:id': {
+    controller:   'RecurringController',
+    action:       'addAllRecurringOutgoings'
   }
 
   /*

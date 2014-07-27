@@ -1,0 +1,47 @@
+<h1>Recurring outgoings in <span class="color">{{account.name}}</span> </h1>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 col-xs-12">
+		<div class="row">
+			<table class="table table-bordered table-hover" id='table-outgoings'>
+				<thead>
+					<tr>
+						<th class='col-md-6 col-xs-6'>Label</th>
+						<th class='col-md-6 col-xs-6'>Amount</th>
+						<th class='col-md-6 col-xs-6'>Action</th>
+					</tr>
+				</thead>
+				<tbody class=''>
+					<tr ng-repeat='outgoing in outgoings'>
+						<td> {{outgoing.label}} 
+						</td>
+						<td ng-class='{positif: outgoing.amount >=0, negatif: outgoing.amount <0 }'>
+							{{outgoing.amount | currency}}
+						</td>
+						<td>
+							<span ng-click='delete(outgoing)' class="glyphicon glyphicon-trash trash"></span>
+						</td>
+					</tr>
+					<tr>
+						<form ng-submit='add()'>
+							<td>
+								<input class='form-control input-lg input-border-bottom' type='text' ng-model='label' placeholder='Label'>
+							</td>
+							<td>
+								<input class='form-control input-lg input-border-bottom' type='text' ng-model='amount' placeholder='Amount'>
+							</td>
+							<td>
+								<input type="button" class="btn btn-custom" ng-click="add()" value="Add" >
+							</td>
+						</form>
+					</tr>
+
+					<tr class="active">
+						<td colspan="3">
+							<input type="button" class="btn btn-custom btn-lg full-width" value="Add All" ng-click="addAll()">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
