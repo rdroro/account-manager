@@ -21,14 +21,19 @@ You can use browser-sync as:
         $ cd /vagrant
         $ browser-sync start --files ".tmp/public/styles/*.css, .tmp/public/templates/*.html" --proxy localhost:1337 --host 192.168.0.18
 
-With Docker :
+# Dev environment
 
+After cloning repository, go to the project directory to build container image and run it :
+
+    $ docker buil -t="rdroro/nodejs" .
     $ docker run -it -v $(pwd):/data -p 1337:1337 --rm rdroro/nodejs nodemon app.js
 
+Your application is now available via http://localhost:1337
+
 @Todo 
-- find a best practice to manager asynchrononous issue (see model.Account.userIsOwner)
+- find a best practice to manager asynchronous issue (see model.Account.userIsOwner)
 - feature: Add user and the default user
 - documentation: Write user guide
-- unit and fonctionnal test
+- unit and functional test
 - feature : Add recurrent outgoing
 - deploy mongodb
