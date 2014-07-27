@@ -16,6 +16,7 @@ results
 .vagrant/*
 
 ssl/*
+
 config/local.js
 
 npm-debug.log
