@@ -15,6 +15,8 @@
    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
    <script type="text/javascript" src='/js/lib/pnotify-1.2.0/jquery.pnotify.js'></script>
+   <script type="text/javascript" src='/js/lib/crypto-js/src/core.js'></script>
+   <script type="text/javascript" src='/js/lib/crypto-js/src/sha1.js'></script>
 
 
 </head>
@@ -25,19 +27,19 @@
       <h1>Account Manager</h1>
       <div class="row">
          <div class="col-md-6 col-md-offset-3 col-xs-12 well">
-            <form class="form-horizontal" role="form" action="/signin" method="post">
+            <form class="form-horizontal" id="login-form" role="form" action="/signin" method="post">
                <div class="form-group">
-                  <label for="inputEmail1" class="col-xs-2 control-label">
+                  <label for="login" class="col-xs-2 control-label">
                      <%= i18n('user.email') %>
                   </label>
                   <div class="col-xs-10">
-                     <input type="" class="input-lg form-control input-border-bottom" id="inputEmail1" placeholder="<%= i18n('user.email') %>" name='login'>
+                     <input type="" class="input-lg form-control input-border-bottom" id="login" placeholder="<%= i18n('user.email') %>" name='login'>
                   </div>
                </div>
                <div class="form-group">
-                  <label for="inputPassword1" class="col-xs-2 control-label"><%= i18n('user.password') %></label>
+                  <label for="password" class="col-xs-2 control-label"><%= i18n('user.password') %></label>
                   <div class="col-xs-10">
-                     <input type="password" class="input-lg input-border-bottom form-control" id="inputPassword1" placeholder="<%= i18n('user.password') %>" name='password'>
+                     <input type="password" class="input-lg input-border-bottom form-control" id="password" placeholder="<%= i18n('user.password') %>" name='password'>
                   </div>
                </div>
                <div class="form-group">
@@ -54,7 +56,15 @@
    <script type="text/javascript">
 
    $(document).ready(function(){
-      $("#inputEmail1").focus();
+      $("#login").focus();
+
+      $('#login-form').submit(function(){
+
+         var hash = $("#login").val() + "" + $("#password").val() ;
+         hash = CryptoJS.SHA1(hash);
+         $("#password").val(hash);
+      });
+
    });
 
    </script>

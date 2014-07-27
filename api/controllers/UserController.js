@@ -14,6 +14,12 @@
     return resp.view('signin');
   },
 
+  /**
+   *
+   * Use to login users.
+   * req.param("login") is the user's login
+   * req.param("password") is the sha1 password
+   */
   signin: function (req, resp) {
     if (req.session.user) {
       return resp.redirect('/accounts');
@@ -25,6 +31,7 @@
       resp.send(403);
       return;
     }
+
 
   	User.findOneByLogin(login)  	
   	.done(function(err, user){
@@ -38,13 +45,7 @@
         return resp.send(403);
       }
 
-  		// Login found, let's check password
-  		var c = require('crypto');
-  		var md5Hasher = c.createHash('md5');
-  		md5Hasher.update(password);
-
-  		var goodPassword = md5Hasher.digest('hex')
-  		if (goodPassword === user.password) {
+  		if (password === user.password) {
         req.session.user = user;
         Account.findByUserId(user.id)
         .exec(function (err, accounts) {
