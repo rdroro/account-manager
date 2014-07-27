@@ -8,14 +8,19 @@
 					<tr>
 						<th class='col-md-4 col-xs-4'>Login</th>
 						<th class='col-md-4 col-xs-4'>Name</th>
-						<th class='col-md-4 col-xs-4' colspan="2">Password</th>
+						<th class='col-md-4 col-xs-4'>Password</th>
+						<th class='col-md-4 col-xs-4'>Action</th>
 					</tr>
 				</thead>
 				<tbody class=''>
 					<tr ng-repeat='user in users'>
 						<td>{{user.login}}</td>
 						<td>{{user.name}}</td>
-						<td colspan="2">-_-"</td>
+						<td>-_-"</td>
+						<td>
+							<span class="glyphicon glyphicon-trash trash" ng-click="delete(user)"></span>
+						</td>
+
 					</tr>
 					<tr>
 						<td>

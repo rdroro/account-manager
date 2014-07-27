@@ -27,6 +27,12 @@ table {
 	font-size: 20px;
 }
 
+.trash:hover {
+	font-size: 16px;
+	color: red;
+	cursor: pointer;
+}
+
 /** Bootstrap Customs **/
 
 .navbar-default {

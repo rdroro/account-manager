@@ -28,12 +28,12 @@ function AccountCtrl($scope, $routeParams, Account) {
          function (createdAccount, responseHeaders) {
             window.location = '/accounts';
          }, function (error) {
-           $.pnotify({
+          $.pnotify({
             title: "Error",
             text: "OoOoOps Impossible to add account",
             type: "error"
          });
-        })
+       })
    };
 
 };
@@ -110,7 +110,9 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
 }
 
 function UserCtrl($scope, $routeParams, User) {
-
+   $.pnotify.defaults.styling = "bootstrap3";
+   $.pnotify.defaults.history = false;
+   
    $scope.users = User.query();
 
    $scope.add = function () {
@@ -118,16 +120,33 @@ function UserCtrl($scope, $routeParams, User) {
       var login = $scope.login;
       var password = login + "" + $scope.password;
       password = CryptoJS.SHA1(password);
+      password = password.toString();
 
       var user = {
          login: $scope.login,
          name: $scope.name,
+         password: password
       }
 
       User.create(user, function(createdUser, responseHeaders){
          $scope.users.push(createdUser);
       });
 
+   };
+
+   $scope.delete = function (user) {
+      User.delete(user,
+         function (deletedUser, responseHeaders) {
+            $scope.users.splice($scope.users.indexOf(user), 1);
+         },
+         function (error) {
+            $.pnotify({
+               title: "Error",
+               text: error.data.error,
+               type: "error"
+            });
+         }
+      )
    }
 
 }

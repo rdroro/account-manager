@@ -14,7 +14,7 @@
 				<tbody class=''>
 					<tr ng-repeat='outgoing in outgoings' ng-class='{success: outgoing.checked}'>
 						<td> {{outgoing.label}} 
-							<span ng-if='!outgoing.checked' ng-click='delete(outgoing)' class="pull-right glyphicon glyphicon-trash"></span> 
+							<span ng-if='!outgoing.checked' ng-click='delete(outgoing)' class="pull-right glyphicon glyphicon-trash trash"></span> 
 						</td>
 						<td ng-class='{positif: outgoing.amount >=0, negatif: outgoing.amount <0 }'>
 							{{outgoing.amount | currency}}
