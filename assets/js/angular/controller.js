@@ -61,6 +61,16 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
          return false;
       }
       $scope.amount = $scope.amount.replace(',', '.');
+
+      if (isNaN($scope.amount)) {
+         $.pnotify({
+            title: "Error",
+            text: "Amount must be a numeric value",
+            type: "error"
+         });
+         return false;
+      }
+
       var outgoing = {
          label: $scope.label,
          amount: $scope.amount,
@@ -159,6 +169,17 @@ function RecurringCtrl ($scope, $routeParams, Recurring, Account, $http, $locati
    });
 
    $scope.add = function() {
+
+      $scope.amount = $scope.amount.replace(',', '.');
+
+      if (isNaN($scope.amount)) {
+         $.pnotify({
+            title: "Error",
+            text: "Amount must be a numeric value",
+            type: "error"
+         });
+         return false;
+      }
 
       var recurring = {
          account: $scope.account.id,
