@@ -7,7 +7,7 @@
 
  var UserController = {
 
-  index : function (req, resp) {
+  loginPage : function (req, resp) {
     if (req.session.user) {
       return resp.redirect('/accounts');
     }

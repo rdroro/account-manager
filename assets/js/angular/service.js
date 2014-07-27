@@ -22,9 +22,9 @@ factory('Outgoing', function($resource){
 
 angular.module('UserServices', ['ngResource']).
 factory('User', function($resource){
-	return $resource('user/:userId', {}, {
-		query: {method:'GET', url: 'user/find/:userId', params:{userId:''}, isArray:true},
-		create: {method: 'POST', url: "user/create"},
+	return $resource('user/:userId', {}, {	
+		query: {method:'GET', params:{userId:''}, isArray:true},
+		create: {method: 'POST'},
 		delete: {method: 'DELETE'}
 	});
 });
