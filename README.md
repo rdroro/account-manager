@@ -30,6 +30,7 @@ After cloning repository, go to the project directory to build container image a
 
 Your application is now available via http://localhost:1337
 
+
 @Todo 
 - find a best practice to manager asynchronous issue (see model.Account.userIsOwner)
 - feature: Add user and the default user
