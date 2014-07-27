@@ -109,8 +109,34 @@ function OutgoingCtrl($scope, $routeParams, Outgoing, Account, $http) {
    };
 }
 
+function UserCtrl($scope, $routeParams, User) {
+
+   $scope.users = User.query();
+
+   $scope.add = function () {
+
+      var login = $scope.login;
+      var password = login + "" + $scope.password;
+      password = CryptoJS.SHA1(password);
+
+      var user = {
+         login: $scope.login,
+         name: $scope.name,
+      }
+
+      User.create(user, function(createdUser, responseHeaders){
+         $scope.users.push(createdUser);
+      });
+
+   }
+
+}
+
+
+
 
 
 
 myApp.controller('AccountCtrl', ['$scope', '$routeParams', 'Account',  AccountCtrl]);
 myApp.controller('OutgoingCtrl', ['$scope', '$routeParams', 'Outgoing', 'Account', '$http', OutgoingCtrl]);
+myApp.controller('UserCtrl', ['$scope', '$routeParams', 'User', UserCtrl]);

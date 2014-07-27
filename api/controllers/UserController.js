@@ -20,12 +20,12 @@
    * req.param("login") is the user's login
    * req.param("password") is the sha1 password
    */
-  signin: function (req, resp) {
+   signin: function (req, resp) {
     if (req.session.user) {
       return resp.redirect('/accounts');
     }
-  	var login = req.param('login');
-  	var password = req.param('password');
+    var login = req.param('login');
+    var password = req.param('password');
 
     if (!login || !password) {
       resp.send(403);
@@ -33,9 +33,9 @@
     }
 
 
-  	User.findOneByLogin(login)  	
-  	.done(function(err, user){
-  		if (err) {
+    User.findOneByLogin(login)  	
+    .done(function(err, user){
+      if (err) {
   			// Do error stuff
   			resp.send(500, {error: 'Data Access Error'});
   			return;
@@ -45,7 +45,7 @@
         return resp.send(403);
       }
 
-  		if (password === user.password) {
+      if (password === user.password) {
         req.session.user = user;
         Account.findByUserId(user.id)
         .exec(function (err, accounts) {
@@ -54,11 +54,11 @@
         if (req.answerPage) {
           return resp.redirect(req.answerPage);
         }
-  			resp.redirect('/accounts');
-  		} else {
-  			resp.send(403);
-  		}
-  	});
+        resp.redirect('/accounts');
+      } else {
+       resp.send(403);
+     }
+   });
   },
 
   signout:  function (req, resp) {

@@ -19,3 +19,16 @@ factory('Outgoing', function($resource){
 		delete: {method: 'DELETE'}
 	});
 });
+
+angular.module('UserServices', ['ngResource']).
+factory('User', function($resource){
+	return $resource('user/:userId', {}, {
+		query: {method:'GET', url: 'user/find/:userId', params:{userId:''}, isArray:true},
+		create: {method: 'POST', url: "user/create"},
+		delete: {method: 'DELETE'}
+	});
+});
+
+
+
+

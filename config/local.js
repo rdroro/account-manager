@@ -57,7 +57,8 @@
   adapters: {
         mysql: {
             user: 'root',
-            password: 'demo'
+            password: 'mysqlserver',
+            host: "172.17.42.1"
         }
     }
 
