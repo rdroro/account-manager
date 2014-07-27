@@ -21,6 +21,10 @@ You can use browser-sync as:
         $ cd /vagrant
         $ browser-sync start --files ".tmp/public/styles/*.css, .tmp/public/templates/*.html" --proxy localhost:1337 --host 192.168.0.18
 
+With Docker :
+
+    $ docker run -it -v $(pwd):/data -p 1337:1337 --rm rdroro/nodejs nodemon app.js
+
 @Todo 
 - find a best practice to manager asynchrononous issue (see model.Account.userIsOwner)
 - feature: Add user and the default user
