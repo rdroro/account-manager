@@ -22,3 +22,6 @@ config/local.js
 npm-debug.log
 
 node_modules
+
+# Bower
+assets/bower_components/*
