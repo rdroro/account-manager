@@ -138,3 +138,17 @@ a {
 td {
 	padding: 10px!important;
 }
+
+/** begin sortable css **/
+.sortasc, .sortdesc {
+	color: green;
+	font-family: "FontAwesome";
+}
+.sortasc::after{
+	content: " \f160";
+}
+
+.sortdesc::after {
+	content: ' \f161';
+}
+/** end sortable css **/

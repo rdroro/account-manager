@@ -5,13 +5,14 @@
 			<table class="table table-bordered table-hover" id='table-outgoings'>
 				<thead>
 					<tr>
-						<th class='col-md-7 col-xs-7'>Label</th>
-						<th class='col-md-3 col-xs-3'>Amount</th>
-						<th class='col-md-2 col-xs-2'>Checked</th>
+						<th class="col-md-7 col-xs-7" ng-class="{sortdesc: (predicate == 'label' && !reverse), sortasc: (predicate == 'label' && reverse)}"
+						ng-click="predicate = 'label'; reverse = (reverse ? false : true)">Label</th>
+						<th ng-class="{sortdesc: (predicate == 'amount' && !reverse), sortasc: (predicate == 'amount' && reverse)}" class='col-md-3 col-xs-3' ng-click="predicate = 'amount'; reverse = (reverse ? false : true)">Amount</th>
+						<th ng-class="{sortdesc: (predicate == 'checked' && !reverse), sortasc: (predicate == 'checked' && reverse)}" class='col-md-2 col-xs-2' ng-click="predicate = 'checked'; reverse = (reverse ? false : true)">Checked</th>
 					</tr>
 				</thead>
 				<tbody class=''>
-					<tr ng-repeat='outgoing in outgoings' ng-class='{success: outgoing.checked}'>
+					<tr ng-repeat="outgoing in outgoings | orderBy:predicate:(reverse ? false : true)" ng-class='{success: outgoing.checked}'>
 						<td> {{outgoing.label}} 
 
 							<span ng-if='!outgoing.checked' ng-click='delete(outgoing)' class="pull-right glyphicon glyphicon-trash trash"></span> 
@@ -29,7 +30,7 @@
 						<td class='text-size-medium'>{{account.balance | currency}}</td>
 					</tr>
 					<tr>
-						<form ng-submit='add2()'>
+						<form>
 							<td>
 								<input class='form-control input-lg input-border-bottom' type='text' ng-model='label' placeholder='Label'>
 							</td>
@@ -43,6 +44,7 @@
 					</tr>
 				</tbody>
 			</table>
+
 		</div>
 	</div>
 </div>
