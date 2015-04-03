@@ -1,4 +1,10 @@
-FROM dockerfile/nodejs
-MAINTAINER Romain Dubos <romain.dubos@gmail.com>
+FROM node:0.12.2
 
-RUN npm install -g nodemon
+# Bundle app source
+COPY . /src
+# Install app dependencies
+RUN cd /src; npm install && node_modules/.bin/bower install --allow-root
+
+
+EXPOSE  1337
+CMD ["bash", "/src/start"]
