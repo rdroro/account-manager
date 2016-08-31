@@ -17,15 +17,15 @@
  			type: 'boolean',
  			defaultsTo: false
  		},
- 		checkedDate: { 	
- 			type: 'date',
+ 		checkedDate: {
+ 			type: 'string',
  			defaultsTo: '1990-01-16T08:01:00.310Z'
  		}
  	},
 
  	/* Checked or unchecked outgoing in parameter
  	* and add or remove it from the account balance */
- 	checkedToggle: 	function(outgoing) { 		
+ 	checkedToggle: 	function(outgoing) {
  		outgoing.checked = outgoing.checked == true ? false : true;
  		outgoing.checkedDate = new Date();
  		outgoing.save(function(err) {
