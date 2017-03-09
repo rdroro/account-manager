@@ -1,0 +1,17 @@
+version: '2'
+services:
+    db-elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.0.2
+        environment:
+          - http.host=0.0.0.0
+          - transport.host=127.0.0.1
+        volumes:
+          - ./data:/usr/share/elasticsearch/data
+        ports:
+            - "9200:9200"
+    kibana:
+        image: docker.elastic.co/kibana/kibana:5.0.2
+        ports:
+            - "5601:5601"
+        links:
+            -  "db-elasticsearch:elasticsearch"

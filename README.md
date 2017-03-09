@@ -1,40 +1,27 @@
-account-manager
+Account-manager
 ===============
 
-account-manager is a web application to manage your bank account and always be aware of present and future balance.
+account-manager est une application de suivi des dépenses développée avec la suite [elasic](https://www.elastic.co/) (elasicsearch et kibana)
 
+**important** les versions >= `1.0.0` ne sont pas compatibles avec les versions
+`0.4.0` et `0.5.0`
 
-This application uses Sailsjs on server (a Realtime MVC framework for Nodejs [Sails website](http://sailsjs.org/))
-and Angular for the front
+Ce projet utilise `elasicsearch` en tant que base de données et `kibana` en tant
+qu'interface de tableau de bord et de requêtage.
 
-Keep in mind this application is under continuous development.
+# Lancement rapide
 
-Stable version is : 0.4.0 and features are :
-- Add accounts
-- Add outgoings on accounts
-- View difference between real and future Account balance (cool thing isn't?)
+`$ docker-compose up`
 
-# Browser-sync
+@todo environnement variable ?
 
-You can use browser-sync as:
+# Pourquoi utiliser elasic ?
 
-        $ cd /vagrant
-        $ browser-sync start --files ".tmp/public/styles/*.css, .tmp/public/templates/*.html" --proxy localhost:1337 --host 192.168.0.18
+* tableau de bord évolutif
+* interface de requêtage puissante
+* évolutivité et prise en compte des besoins pontuels
 
-# Dev environment
+# todo
 
-After cloning repository, go to the project directory to build container image and run it :
-
-    $ docker buil -t="rdroro/nodejs" .
-    $ docker run -it -v $(pwd):/data -p 1337:1337 --rm rdroro/nodejs nodemon app.js
-
-Your application is now available via http://localhost:1337
-
-
-@Todo 
-- find a best practice to manager asynchronous issue (see model.Account.userIsOwner)
-- feature: Add user and the default user
-- documentation: Write user guide
-- unit and functional test
-- feature : Add recurrent outgoing
-- deploy mongodb
+* création des index au démarrage
+* référencement des index dans kibana
